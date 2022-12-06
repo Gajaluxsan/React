@@ -1,38 +1,37 @@
 import { Component } from "react";
 // Arrow Function  TAble Header
-const TableHeader =()=>{
-    return(<thead>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Address</th>
-            <th>Action</th>
-        </tr>
-    </thead>);
-}
+const TableHeader = () => {
+    return <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th></tr>;
+  }
 // Arrow Function  TAble Footer
-const TableFooter =()=>{
-    return(<tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Address</th>
-            <th>Action</th>
-        </tr>
-    </tfoot>);
-}
+// const TableFooter =()=>{
+//     return(<tfoot>
+//         <tr>
+//             <th>Name</th>
+            
+//         </tr>
+//     </tfoot>);
+// }
 const TableBody =(props)=>{
-   const er =props
+   const {erwe} =props;
+//    const rows = erwe.map((char)=>{
+//         return(
+//             <tr>
+//                 <td>{char.name}</td>
+//                 </tr>)
+//     })
+   return(<tbody>
+    {erwe}
+        </tbody>)
 }
 
 class Table extends Component {
     render() {
-        const {dataes} = this.props
+        const dataes = this.props
         return (
             <table className="table">
                 <TableHeader/>
-                <TableBody chardata={dataes}/>
-                <TableFooter/>
+                <TableBody dataes={dataes}/>
             </table>
     );
     }
