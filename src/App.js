@@ -1,14 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
-import Table from './table.js';
+import React, { Component } from 'react';
 
-function App() {
-    const obj = [{email:"gowtham@outlook.com",firstname:"gowtham",lastname:"ss",password:"outlook010"},{email:"ss@ss.com",firstname:"ss",lastname:"ss",password:"ss"},{email:"gow@gow.com",firstname:"gow",lastname:"gow",password:"gow"}];
-    return ( <div className = "container-sm bg-info mt-5" >
-      <h1 className='text-center mb-4 text-white'>User Table</h1>
-            <Table data={obj}/>
-        </div>
-    );
+class App extends Component {
+	render() {
+		var heading = ['Name', 'City', 'Course'];
+		var body =
+			[['Kapil', 'Jaipur', 'MCA'],
+			['Aakash', 'Hisar', 'Btech'],
+			['Mani', 'Ranchi', 'MSc'],
+			['Yash', 'Udaipur', 'Mtech']
+			];
+		return (
+			<div >
+				<Table heading={heading} body={body} />,
+			</div>
+		);
+	}
+}
+
+class Table extends Component {
+	render() {
+		var heading = this.props.heading;
+		var body = this.props.body;
+		return (
+            <div className='container'>
+			<table className='table' style={{ width: 600 }}>
+				<thead>
+					<tr>
+						{heading.map(head => <th>{head}</th>)}
+					</tr>
+				</thead>
+				<tbody>
+					{body.map(row => <TableRow row={row} />)}
+				</tbody>
+			</table>
+            </div>
+		);
+	}
+}
+
+class TableRow extends Component {
+	render() {
+		var row = this.props.row;
+		return (
+			<tr>
+				{row.map(val => <td>{val}</td>)}
+			</tr>
+		)
+	}
+}
+const TebleRows=(props)=>{
+    const row =this.props.row;
+    return({row})
 }
 
 export default App;
